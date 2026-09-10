@@ -50,7 +50,16 @@ export default function Messages() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(loadMessages, []);
+  useEffect(() => {
+    loadMessages();
+    // Intentionally run once per mount, not on every change to
+    // refreshMessageCount/refreshMunicipalitiesTotal: this page always
+    // fully remounts when the business context actually changes (entering
+    // or exiting a municipality navigates to a different route), so a
+    // fresh load already happens at the right time without re-running this
+    // effect on unrelated auth-state changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleFileChange = (e) => {
     setFiles(Array.from(e.target.files || []));

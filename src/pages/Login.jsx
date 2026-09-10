@@ -94,7 +94,9 @@ export default function Login() {
           </Button>
         </form>
 
-        
+        <p style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '1.5rem' }}>
+          Default admin: <code>admin</code> / <code>Admin@123</code>
+        </p>
         <p style={{ textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-muted)', marginTop: '0.5rem' }}>
           New organization? <Link to="/signup" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>Set up your account</Link>
         </p>
